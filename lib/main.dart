@@ -8,27 +8,58 @@ void main() {
   return runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool phoneVibrate = true;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.teal,
         appBar: AppBar(
-          centerTitle: true,
           title: Text(
             "Dicee",
           ),
-          backgroundColor: Colors.indigo,
+          actions: phoneVibrate
+              ? [
+                  IconButton(
+                    icon: Icon(Icons.vibration),
+                    onPressed: () {
+                      setState(() {
+                        phoneVibrate = false;
+                      });
+                    },
+                  )
+                ]
+              : [
+                  IconButton(
+                    icon: Icon(Icons.notifications_off_outlined),
+                    onPressed: () {
+                      setState(() {
+                        phoneVibrate = true;
+                      });
+                    },
+                  )
+                ],
+          backgroundColor: Colors.teal,
         ),
-        body: DicePage(),
+        body: DicePage(phoneVibrate),
       ),
     );
   }
 }
 
+// ignore: must_be_immutable
 class DicePage extends StatefulWidget {
+  bool phoneVibrate;
+
+  DicePage(this.phoneVibrate);
   @override
   _DicePageState createState() => _DicePageState();
 }
@@ -38,7 +69,9 @@ class _DicePageState extends State<DicePage> {
   int btmDiceNumber = 3;
 
   void changeDiceNumbers() {
-    Vibration.vibrate();
+    if (widget.phoneVibrate) {
+      Vibration.vibrate();
+    }
     setState(() {
       topDiceNumber = Random().nextInt(6) + 1;
       btmDiceNumber = Random().nextInt(6) + 1;
