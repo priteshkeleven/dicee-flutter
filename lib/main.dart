@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:shake/shake.dart';
+import 'package:vibration/vibration.dart';
 
 void main() {
   return runApp(MyApp());
@@ -37,6 +38,7 @@ class _DicePageState extends State<DicePage> {
   int btmDiceNumber = 3;
 
   void changeDiceNumbers() {
+    Vibration.vibrate();
     setState(() {
       topDiceNumber = Random().nextInt(6) + 1;
       btmDiceNumber = Random().nextInt(6) + 1;
