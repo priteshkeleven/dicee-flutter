@@ -80,6 +80,18 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "sensors",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/sensors-0.4.2+6",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "shake",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/shake-0.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///C:/src/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -140,7 +152,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-02-11T10:45:49.889193Z",
+  "generated": "2021-02-12T11:40:31.151602Z",
   "generator": "pub",
   "generatorVersion": "2.10.4"
 }
